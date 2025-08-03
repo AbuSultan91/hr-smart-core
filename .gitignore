@@ -1,0 +1,216 @@
+# HR Smart Core - .gitignore
+# ===================================
+# حماية المعلومات الحساسة والملفات غير المرغوبة
+
+# Django Settings والمعلومات الحساسة
+# ===================================
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+.env
+.env.local
+.env.production
+.env.staging
+settings_local.py
+config/settings/local.py
+config/settings/production.py
+
+# معلومات قواعد البيانات الحساسة
+# ===============================
+*.sql
+*.dump
+database_backups/
+mysql_data/
+postgresql_data/
+redis_data/
+
+# مفاتيح التشفير والأمان
+# =======================
+SECRET_KEY*
+*.key
+*.pem
+*.cert
+*.crt
+certificates/
+ssl/
+keys/
+secrets/
+
+# ملفات النسخ الاحتياطية
+# ======================
+*.backup
+*.bak
+*.old
+*.tmp
+backups/
+dumps/
+
+# ملفات الإعلام والمرفقات الحساسة
+# ==============================
+media/uploads/
+media/private/
+media/employee_photos/
+media/documents/
+media/contracts/
+uploads/
+employee_files/
+sensitive_documents/
+
+# الملفات المؤقتة والتخزين المؤقت
+# ===============================
+*.cache
+cache/
+tmp/
+temp/
+.cache/
+staticfiles/
+collected_static/
+
+# أدوات التطوير
+# ==============
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# البيئات الافتراضية
+# ==================
+venv/
+env/
+ENV/
+.venv/
+.env/
+venv_*/
+virtualenv/
+
+# ملفات التحليل والاختبار
+# ========================
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+coverage.xml
+*.cover
+*.log
+test_results/
+reports/
+
+# ملفات التوزيع والبناء
+# =====================
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+wheels/
+
+# معلومات العملاء الحساسة (مهم جداً!)
+# ==================================
+customer_data/
+client_files/
+company_data/
+financial_data/
+payroll_exports/
+employee_reports/
+confidential/
+
+# ملفات التكامل مع الأنظمة الخارجية
+# =================================
+api_keys.txt
+api_config.py
+bank_configs/
+payment_gateways/
+third_party_configs/
+
+# ملفات الإنتاج
+# =============
+static_production/
+media_production/
+logs/
+*.access.log
+*.error.log
+gunicorn.log
+celery.log
+
+# ملفات Docker الحساسة
+# ====================
+docker-compose.override.yml
+docker-compose.production.yml
+.dockerignore.local
+Dockerfile.production
+
+# ملفات المراقبة والتحليل
+# =======================
+monitoring/
+analytics/
+metrics/
+performance_data/
+
+# ملفات الأمان المتقدمة
+# =====================
+security_configs/
+firewall_rules/
+audit_logs/
+security_reports/
+
+# ملفات البيانات التجريبية (للتطوير فقط)
+# ======================================
+sample_data/real_*
+production_data/
+live_data/
+actual_employees.json
+real_companies.json
+
+# ملفات التراخيص والاتفاقيات الحساسة
+# ==================================
+enterprise_license.txt
+commercial_agreements/
+nda_documents/
+partnership_contracts/
+
+# ملفات المبيعات والعملاء
+# ========================
+sales_data/
+customer_contracts/
+pricing_private/
+revenue_reports/
+
+# إعدادات الخادم والنشر
+# ====================
+server_configs/
+deployment_keys/
+ssh_keys/
+production_settings/
+staging_settings/
+
+# ملفات النسخ الاحتياطية التلقائية
+# ===============================
+auto_backup_*/
+scheduled_backups/
+emergency_backups/
+
+# ===================================
+# ملاحظات مهمة للمطورين:
+# ===================================
+# 1. لا تضع أبداً معلومات حساسة في Git
+# 2. استخدم متغيرات البيئة للمعلومات الحساسة
+# 3. راجع هذا الملف دورياً لإضافة ملفات جديدة
+# 4. تأكد من عدم رفع بيانات عملاء حقيقيين
+# 5. احم مفاتيح التشفير والـ API keys
+
+# ===================================
+# للمساهمين: قبل عمل commit تأكد من:
+# ===================================
+# ✅ عدم وجود معلومات شخصية
+# ✅ عدم وجود مفاتيح أو كلمات مرور
+# ✅ عدم وجود بيانات عملاء حقيقيين
+# ✅ عدم وجود معلومات تجارية حساسة

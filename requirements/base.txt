@@ -1,0 +1,31 @@
+# HR Smart Core - Base Requirements
+# ==================================
+# المتطلبات الأساسية المشتركة بين جميع البيئات
+
+# Django Core
+Django>=4.2.0,<5.0.0
+djangorestframework>=3.14.0
+django-cors-headers>=4.0.0
+django-filter>=23.0.0
+
+# Database
+psycopg2-binary>=2.9.0
+mysqlclient>=2.1.0
+
+# Security & Auth
+djangorestframework-simplejwt>=5.2.0
+cryptography>=41.0.0
+
+# File Processing
+Pillow>=10.0.0
+openpyxl>=3.1.0
+reportlab>=4.0.0
+
+# Utilities
+python-dateutil>=2.8.0
+pytz>=2023.3
+requests>=2.31.0
+
+# Configuration
+python-decouple>=3.8
+django-environ>=0.10.0
