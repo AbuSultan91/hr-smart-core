@@ -1,0 +1,206 @@
+/* HR Smart Core - Main CSS Styles */
+
+/* Right-to-Left and Arabic support */
+html[dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Arabic font improvements */
+body {
+    font-family: 'Noto Sans Arabic', 'Cairo', 'Tajawal', Arial, sans-serif !important;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Headers with Arabic font */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Noto Sans Arabic', 'Cairo', 'Tajawal', Arial, sans-serif !important;
+    font-weight: 600;
+}
+
+/* Buttons improvements */
+.btn {
+    font-weight: 500;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Cards improvements */
+.card {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border: 1px solid rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.card-header {
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+/* Form improvements */
+.form-control {
+    border-radius: 8px;
+    border: 2px solid #e9ecef;
+    padding: 0.6rem 0.75rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+.form-label {
+    font-weight: 500;
+    color: #495057;
+    margin-bottom: 0.5rem;
+}
+
+/* Tables improvements */
+.table {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    border-bottom: 2px solid #dee2e6;
+}
+
+/* Navigation improvements */
+.navbar-nav .nav-link {
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    margin: 0 0.25rem;
+    transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+/* Dropdown improvements */
+.dropdown-menu {
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    border: 1px solid rgba(0,0,0,0.08);
+}
+
+.dropdown-item {
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+}
+
+/* Alert improvements */
+.alert {
+    border-radius: 8px;
+    border: none;
+    padding: 1rem 1.25rem;
+}
+
+.alert-dismissible .btn-close {
+    padding: 1rem 1.25rem;
+}
+
+/* Responsive spacing */
+@media (max-width: 768px) {
+    .container-fluid {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .navbar-brand {
+        font-size: 1rem;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 0.5rem;
+    }
+}
+
+/* Utilities */
+.text-truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.rounded-lg {
+    border-radius: 12px !important;
+}
+
+.shadow-sm {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08) !important;
+}
+
+.shadow {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.12) !important;
+}
+
+.shadow-lg {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15) !important;
+}
+
+/* Loading spinner */
+.spinner-border-sm {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Print styles */
+@media print {
+    .navbar,
+    .btn,
+    .card-footer,
+    .alert-dismissible .btn-close {
+        display: none !important;
+    }
+    
+    .card {
+        box-shadow: none !important;
+        border: 1px solid #dee2e6 !important;
+    }
+}
+
+/* Dark mode support (future enhancement) */
+@media (prefers-color-scheme: dark) {
+    /* Will be implemented in future versions */
+}
