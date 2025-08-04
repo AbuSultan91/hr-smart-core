@@ -1,0 +1,336 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}لوحة التحكم - HR Smart Core{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="h3 mb-0">
+                <i class="fas fa-tachometer-alt me-2 text-primary"></i>
+                لوحة التحكم
+            </h1>
+            <div class="text-muted">
+                <i class="fas fa-calendar me-1"></i>
+                {{ current_date|date:"l، j F Y" }}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Statistics Cards -->
+<div class="row g-4 mb-4">
+    <div class="col-xl-3 col-md-6">
+        <div class="card text-white bg-primary h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <div class="fs-6 fw-semibold">إجمالي الموظفين</div>
+                        <div class="fs-2 fw-bold">{{ total_employees|default:"0" }}</div>
+                    </div>
+                    <div class="fs-1 opacity-75">
+                        <i class="fas fa-users"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer bg-primary-dark">
+                <a href="#" class="text-white text-decoration-none">
+                    <small>عرض التفاصيل <i class="fas fa-arrow-left ms-1"></i></small>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-xl-3 col-md-6">
+        <div class="card text-white bg-success h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <div class="fs-6 fw-semibold">الحاضرون اليوم</div>
+                        <div class="fs-2 fw-bold">{{ present_today|default:"0" }}</div>
+                    </div>
+                    <div class="fs-1 opacity-75">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer bg-success-dark">
+                <a href="#" class="text-white text-decoration-none">
+                    <small>تفاصيل الحضور <i class="fas fa-arrow-left ms-1"></i></small>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-xl-3 col-md-6">
+        <div class="card text-white bg-warning h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <div class="fs-6 fw-semibold">طلبات الإجازة</div>
+                        <div class="fs-2 fw-bold">{{ pending_leaves|default:"0" }}</div>
+                    </div>
+                    <div class="fs-1 opacity-75">
+                        <i class="fas fa-calendar-times"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer bg-warning-dark">
+                <a href="#" class="text-white text-decoration-none">
+                    <small>مراجعة الطلبات <i class="fas fa-arrow-left ms-1"></i></small>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-xl-3 col-md-6">
+        <div class="card text-white bg-info h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <div class="fs-6 fw-semibold">كشوف الرواتب</div>
+                        <div class="fs-2 fw-bold">{{ payrolls_this_month|default:"0" }}</div>
+                    </div>
+                    <div class="fs-1 opacity-75">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer bg-info-dark">
+                <a href="#" class="text-white text-decoration-none">
+                    <small>إدارة الرواتب <i class="fas fa-arrow-left ms-1"></i></small>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Actions -->
+<div class="row g-4 mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-bolt me-2 text-primary"></i>
+                    إجراءات سريعة
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <a href="#" class="btn btn-outline-primary w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3">
+                            <i class="fas fa-user-plus fs-3 mb-2"></i>
+                            <span>إضافة موظف</span>
+                        </a>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <a href="#" class="btn btn-outline-success w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3">
+                            <i class="fas fa-clock fs-3 mb-2"></i>
+                            <span>تسجيل حضور</span>
+                        </a>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <a href="#" class="btn btn-outline-warning w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3">
+                            <i class="fas fa-calendar-plus fs-3 mb-2"></i>
+                            <span>طلب إجازة</span>
+                        </a>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <a href="#" class="btn btn-outline-info w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3">
+                            <i class="fas fa-calculator fs-3 mb-2"></i>
+                            <span>حساب الرواتب</span>
+                        </a>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <a href="#" class="btn btn-outline-secondary w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3">
+                            <i class="fas fa-chart-bar fs-3 mb-2"></i>
+                            <span>التقارير</span>
+                        </a>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <a href="#" class="btn btn-outline-dark w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3">
+                            <i class="fas fa-cogs fs-3 mb-2"></i>
+                            <span>الإعدادات</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Activities & Notifications -->
+<div class="row g-4">
+    <div class="col-lg-8">
+        <div class="card h-100">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-history me-2 text-primary"></i>
+                    الأنشطة الأخيرة
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="activity-timeline">
+                    <div class="activity-item">
+                        <div class="activity-icon bg-success">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h6 class="mb-1">تم إضافة موظف جديد</h6>
+                            <p class="text-muted mb-0">أحمد محمد - قسم تقنية المعلومات</p>
+                            <small class="text-muted">منذ ساعتين</small>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-icon bg-warning">
+                            <i class="fas fa-calendar-times"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h6 class="mb-1">طلب إجازة جديد</h6>
+                            <p class="text-muted mb-0">سارة أحمد - إجازة سنوية</p>
+                            <small class="text-muted">منذ 4 ساعات</small>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-icon bg-info">
+                            <i class="fas fa-money-bill"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h6 class="mb-1">تم إنشاء كشوف الرواتب</h6>
+                            <p class="text-muted mb-0">رواتب شهر ديسمبر 2024</p>
+                            <small class="text-muted">أمس</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-bell me-2 text-primary"></i>
+                    الإشعارات
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="notification-list">
+                    <div class="notification-item">
+                        <div class="d-flex align-items-start">
+                            <div class="notification-icon bg-warning-light text-warning me-3">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h6 class="mb-1">طلبات إجازة قيد المراجعة</h6>
+                                <p class="mb-0 text-muted small">يوجد 3 طلبات تحتاج للمراجعة</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="notification-item">
+                        <div class="d-flex align-items-start">
+                            <div class="notification-icon bg-info-light text-info me-3">
+                                <i class="fas fa-calendar"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h6 class="mb-1">انتهاء صلاحية عقود</h6>
+                                <p class="mb-0 text-muted small">2 عقود تنتهي خلال 30 يوم</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="notification-item">
+                        <div class="d-flex align-items-start">
+                            <div class="notification-icon bg-success-light text-success me-3">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h6 class="mb-1">تحديث النظام</h6>
+                                <p class="mb-0 text-muted small">تم تحديث النظام بنجاح</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .bg-primary-dark { background-color: rgba(13, 110, 253, 0.8) !important; }
+    .bg-success-dark { background-color: rgba(25, 135, 84, 0.8) !important; }
+    .bg-warning-dark { background-color: rgba(255, 193, 7, 0.8) !important; }
+    .bg-info-dark { background-color: rgba(13, 202, 240, 0.8) !important; }
+    
+    .activity-timeline {
+        position: relative;
+        padding-left: 2rem;
+    }
+    
+    .activity-timeline::before {
+        content: '';
+        position: absolute;
+        left: 0.75rem;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: #dee2e6;
+    }
+    
+    .activity-item {
+        position: relative;
+        padding-bottom: 1.5rem;
+    }
+    
+    .activity-item:last-child {
+        padding-bottom: 0;
+    }
+    
+    .activity-icon {
+        position: absolute;
+        left: -2rem;
+        top: 0;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 0.875rem;
+    }
+    
+    .activity-content {
+        margin-left: 1rem;
+    }
+    
+    .notification-item {
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #f1f3f4;
+    }
+    
+    .notification-item:last-child {
+        border-bottom: none;
+    }
+    
+    .notification-icon {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.875rem;
+    }
+    
+    .bg-warning-light { background-color: rgba(255, 193, 7, 0.1); }
+    .bg-info-light { background-color: rgba(13, 202, 240, 0.1); }
+    .bg-success-light { background-color: rgba(25, 135, 84, 0.1); }
+</style>
+{% endblock %}
